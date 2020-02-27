@@ -1,0 +1,22 @@
+
+ ///// this is a codeigniter framework code for autocomplete text/////////
+
+
+ public function host_post(){
+        $rows = array();
+        
+       $name=$this->input->post("host_name");
+       
+       $results = $this->db->query("SELECT * FROM host_detail where host_name like'$name%%'");   
+       
+       foreach ($results->result() as $r)
+{
+        $rows['results'][] = $r;
+}
+      
+    
+    
+    
+    echo json_encode($rows);
+
+}
